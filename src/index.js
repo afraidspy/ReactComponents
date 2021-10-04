@@ -1,17 +1,14 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom';
+//Importación de un componente
+import PrimeraApp from './PrimeraApp';
+//Importación de la hoja de estilos
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//Sirve para redendizar el contenido en la vista HTML
+/*const saludo = <h1>Example</h1>
+const divRoot = document.querySelector('#root');
+ReactDOM.render(saludo, divRoot);
+console.log(divRoot);*/
+// Se manda a llamar al componente por su nombre
+const divRoot = document.querySelector('#root');
+ReactDOM.render(<PrimeraApp message="Jess"/>,divRoot);
