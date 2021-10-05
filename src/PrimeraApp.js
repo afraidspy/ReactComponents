@@ -1,13 +1,11 @@
-//Componentes
-//Con base a funciones: Functional components
-
-import React, { Fragment } from 'react';
+//Componentes con base a funciones: Functional components
+import React, { Fragment,useState } from 'react';
 //Obliga al componente a que reciba ciertas propiedades
 import { PropTypes } from 'prop-types';
 /*const PrimerApp = () => {
     return <h1> Example</h1>;
 }*/
-const PrimeraApp = ({message}) => {
+const PrimeraApp = ({value}) => {
     const name = "Jess";
     const array = [2,3,5,2,0]
     const json = {
@@ -15,17 +13,34 @@ const PrimeraApp = ({message}) => {
         'surname': 'San',
         'age': "28"
     };
-    console.log(message);
+    console.log(value);
+
+    const [counter, setCounter] = useState(value);
+   // const [counter2, setValorInicial] = useState(value);
+
+    const handleAdd = ()=>{
+        setCounter(parseInt(counter)+1)
+    };
+    const handleRestar = () => {
+        setCounter(parseInt(counter)-1)
+    }
+    const handleReset = () => {
+        setCounter(value)
+    }
+
     return (
        /*  <Fragment>
             <h1> Example</h1>
             <p> First aplication</p>
         </Fragment>**/
         <>
-            <h1> Example {message}</h1>
+            <h1> Example {value}</h1>
             <p> First aplication for {name}</p>
             <p> {array}</p>
             <p> {json['age']}</p>
+            <button onClick={handleRestar}>Restar</button>
+            <button onClick={handleReset}>{counter}</button>
+            <button onClick={handleAdd}>Sumar</button>
         </>
         );
 }
@@ -33,7 +48,7 @@ const PrimeraApp = ({message}) => {
 y su tipo de datps*/
 PrimeraApp.propTypes = {
     //Indica que la propiedad debe de ser obligatoria
-    message: PropTypes.string.isRequired
+    value: PropTypes.number.isRequired
 }
 /**
  * Si una propiedad es definida como opcional,pero
@@ -41,9 +56,7 @@ PrimeraApp.propTypes = {
  * se coloca el atributo con un valor por defecto.
  */
 PrimeraApp.defaultProps = {
-    message: "Jessica default"
+    value: "Jessica default"
 
 }
-
-
 export default PrimeraApp;

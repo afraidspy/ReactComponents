@@ -11,4 +11,4 @@ ReactDOM.render(saludo, divRoot);
 console.log(divRoot);*/
 // Se manda a llamar al componente por su nombre
 const divRoot = document.querySelector('#root');
-ReactDOM.render(<PrimeraApp message="Jess"/>,divRoot);
+ReactDOM.render(<PrimeraApp value="1"/>,divRoot);
